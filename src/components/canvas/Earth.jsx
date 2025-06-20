@@ -76,7 +76,7 @@ const ShanghaiMarker = () => {
 };
 
 const Earth = () => {
-  const earth = useGLTF("./planet/scene.gltf");
+  const earth = useGLTF("/planet/scene.gltf");
 
   return (
     <group>
