@@ -1,0 +1,23 @@
+# ./app.yaml (根目录)
+runtime: nodejs20 # 我们需要一个 Node.js 环境来提供静态文件服务
+
+handlers:
+  # 首先, 处理所有对静态文件的请求 (如 css, js, 图片等)
+  # 将 URL 路径映射到构建输出的 dist 文件夹中对应的文件
+  - url: /(.*\.js)
+    static_files: dist/\1
+    upload: dist/.*\.js$
+
+  - url: /(.*\.css)
+    static_files: dist/\1
+    upload: dist/.*\.css$
+
+  - url: /(.*\.(svg|png|jpg|gif))$
+    static_files: dist/\1
+    upload: dist/.*\.(svg|png|jpg|gif)$
+
+  # 最后, 将所有其他请求 (例如直接访问 /about) 全部指向 index.html
+  # 这是为了让 React Router 能够接管前端路由
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
