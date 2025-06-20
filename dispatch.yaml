@@ -1,0 +1,8 @@
+dispatch:
+  # 将所有对 /api/* 的请求路由到后端的 'api' 服务
+  - url: "*/api/*"
+    service: api
+
+  # 将所有其他请求路由到前端的 'default' 服务
+  - url: "*/*"
+    service: default

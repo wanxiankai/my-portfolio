@@ -17,18 +17,11 @@ const FloatingAIAssistant = () => {
         setIsLoading(true);
         setError("");
         setResponse("");
-
-        // 这段代码会自动拼接出你的后端服务线上地址
-        const GCLOUD_PROJECT_ID = '[my-portfolio-project-463508]'; // 替换为你真实的项目 ID
-        const GCLOUD_REGION_ID = '[asia-east1]'; // 例如 us-central 或 asia-northeast1
-
-        const PROD_API_URL = `https://api-dot-${GCLOUD_PROJECT_ID}.${GCLOUD_REGION_ID}.r.appspot.com/api/generate`;
-        const DEV_API_URL = 'http://localhost:3001/api/generate';
-
-        const proxyApiUrl = import.meta.env.PROD ? PROD_API_URL : DEV_API_URL;
+        
+         const apiUrl = '/api/generate';
 
         try {
-            const res = await fetch(proxyApiUrl, {
+            const res = await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ prompt: prompt })
