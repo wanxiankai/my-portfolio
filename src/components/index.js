@@ -7,7 +7,7 @@ import Experience from "./Experience";
 import Works from "./Works";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
-import AIAssistant from "./AIAssistant";
+import FloatingAIAssistant from "./FloatingAIAssistant";
 
 export {
   Hero,
@@ -16,7 +16,7 @@ export {
   Tech,
   Experience,
   Works,
-  AIAssistant,
+  FloatingAIAssistant,
   Contact,
   CanvasLoader,
   EarthCanvas, 
