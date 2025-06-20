@@ -27,3 +27,5 @@ dist-ssr
 
 # vscode
 .vscode
+
+server/.env
