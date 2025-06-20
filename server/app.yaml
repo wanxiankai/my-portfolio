@@ -1,0 +1,11 @@
+# server/app.yaml
+service: api  # 将这个服务命名为 'api'
+runtime: nodejs20 # 使用 Node.js 20 运行时
+
+# 这是一个小项目, 使用最基础的实例规格以节省成本
+instance_class: F1
+
+# 设置环境变量
+env_variables:
+  # 将你的真实密钥粘贴到这里
+  GEMINI_API_KEY: ""
