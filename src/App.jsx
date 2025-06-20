@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
 import LazyLoad from "./components/LazyLoad";
+import FloatingAIAssistant from "./components/FloatingAIAssistant";
 
 
 
@@ -23,6 +24,7 @@ const App = () => {
           </LazyLoad>
           <StarsCanvas />
         </div>
+        <FloatingAIAssistant />
       </div>
     </BrowserRouter>
   );
