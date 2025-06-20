@@ -1,15 +1,29 @@
 runtime: nodejs20
 
 handlers:
-  # 规则 1: 将所有请求首先尝试映射到 dist 目录下的静态文件。
-  # 例如，对 /assets/index.js 的请求会提供 dist/assets/index.js 文件。
-  # 对 /desktop_pc/scene-transformed.glb 的请求会提供 dist/desktop_pc/scene-transformed.glb 文件。
-  # 这一个规则就处理了所有 js, css, glb, png, woff 等静态资源。
-  - url: /
-    static_dir: dist
+  # 规则 1: 处理 Vite 生成的 JS/CSS 等资源。
+  # 所有在 /assets/ 路径下的请求，都映射到 dist/assets/ 文件夹下的同名文件。
+  - url: /assets
+    static_dir: dist/assets
 
-  # 规则 2: 如果上面的规则在 dist 目录中找不到匹配的文件（例如，对于 /contact 或 /works 这样的前端路由），
-  # 则将请求回退到 index.html。这使得 React Router 能够接管路由。
+  # 规则 2: 处理 desktop 3D 模型文件。
+  # 所有在 /desktop_pc/ 路径下的请求，都映射到 dist/desktop_pc/ 文件夹下的同名文件。
+  - url: /desktop_pc
+    static_dir: dist/desktop_pc
+
+  # 规则 3: 处理 planet 3D 模型文件。
+  # 所有在 /planet/ 路径下的请求，都映射到 dist/planet/ 文件夹下的同名文件。
+  - url: /planet
+    static_dir: dist/planet
+
+  # 规则 4: 处理其他可能的根目录静态文件（例如字体、favicon等）。
+  - url: /(.*\.(woff|ttf|eot|ico|json|png))$
+    static_files: dist/\1
+    upload: dist/(.*\.(woff|ttf|eot|ico|json|png))$
+
+  # 规则 5: SPA 回退规则 (必须放在最后)。
+  # 如果一个请求不匹配以上任何规则（例如 /about, /contact, 或者根路径 /），
+  # 则提供 index.html，让 React Router 接管。
   - url: /.*
     static_files: dist/index.html
     upload: dist/index.html
