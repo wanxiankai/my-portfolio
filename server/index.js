@@ -8,7 +8,7 @@ import cors from 'cors';
 dotenv.config();
 
 const app = express();
-const port = 3001; // 你可以自定义一个端口
+const port = process.env.PORT || 3001;
 
 // 中间件
 app.use(cors()); // 允许所有来源的跨域请求 (在开发中很方便)
