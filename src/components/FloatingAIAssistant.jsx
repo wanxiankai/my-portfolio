@@ -18,16 +18,14 @@ const FloatingAIAssistant = () => {
         setError("");
         setResponse("");
 
-        // const chatHistory = [{
-        //     role: "user",
-        //     parts: [{ text: `You are now a seasoned technical interviewer and resume optimization expert. Based on the following content, please provide 3-5 specific, actionable optimization suggestions from a professional perspective to help me better showcase my abilities and the value of my projects. Please respond in English, with clear formatting, in a professional and constructive tone.\n\nHere is the content：\n"${prompt}"` }]
-        // }];
+        // 这段代码会自动拼接出你的后端服务线上地址
+        const GCLOUD_PROJECT_ID = '[my-portfolio-project-463508]'; // 替换为你真实的项目 ID
+        const GCLOUD_REGION_ID = '[asia-east1]'; // 例如 us-central 或 asia-northeast1
 
-        // const payload = { contents: chatHistory };
-        // const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // Canvas会自动处理API Key
-        // const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+        const PROD_API_URL = `https://api-dot-${GCLOUD_PROJECT_ID}.${GCLOUD_REGION_ID}.r.appspot.com/api/generate`;
+        const DEV_API_URL = 'http://localhost:3001/api/generate';
 
-        const proxyApiUrl = 'http://localhost:3001/api/generate';
+        const proxyApiUrl = import.meta.env.PROD ? PROD_API_URL : DEV_API_URL;
 
         try {
             const res = await fetch(proxyApiUrl, {
