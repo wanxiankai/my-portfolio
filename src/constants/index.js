@@ -19,7 +19,6 @@ import {
   xmly,
   boohee,
   alibaba,
-  italki,
   talk2ai,
   crypt,
   portfolio,
@@ -93,29 +92,18 @@ const technologies = [
 
 const experiences = [
   {
-    title: "Junior Web Developer",
-    company_name: "italki",
-    icon: italki,
-    iconBg: "#eb5544",
-    date: "Apr 2018 - Sep 2019",
-    points: [
-      " Developed and Enhanced Internal Website Features for Order Management System (OMS) Using Angular",
-      "Spearheaded Development and Optimization of New Features for Business Operations System (BOS) Projects",
-    ],
-  },
-  {
     title: "Frontend Developer",
     company_name: "Alibaba",
     icon: alibaba,
     iconBg: "#ed702d",
-    date: "Sep 2019 - Sep 2020",
+    date: "Jul 2017 - Sep 2020",
     points: [
       "Led the development of Taobao e-commerce platform and WeChat mini-program e-commerce platform",
       "Developed Key Market and Promotional Campaigns During Major Sales Events",
     ],
   },
   {
-    title: "Team Lead",
+    title: "Frontend Developer, Team Leader",
     company_name: "薄荷健康",
     icon: boohee,
     iconBg: "#fff",

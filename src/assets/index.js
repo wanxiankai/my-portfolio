@@ -25,7 +25,6 @@ import magnetlabs from "./company/magnetlabs.png";
 import xmly from "./company/xmly.png";
 import boohee from "./company/boohee.png";
 import alibaba from "./company/alibaba.jpeg";
-import italki from "./company/italki.jpeg";
 
 import talk2ai from "./talk2ai.png";
 import crypt from "./crypt.png";
@@ -57,7 +56,6 @@ export {
   xmly,
   boohee,
   alibaba,
-  italki,
   talk2ai,
   crypt,
   portfolio
